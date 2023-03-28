@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-
+    name: Execute Tests for PeopleAPI
     runs-on: ubuntu-latest
 
     strategy:
