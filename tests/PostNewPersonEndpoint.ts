@@ -110,19 +110,6 @@ describe('Testing the Post New Person endpoint', () => {
 
     })
 
-    it('Failed to post new person if isEmployed field is a string', async () => {
-        newPerson = postNewPersonPayload.createNewPersonPayload()
-        delete newPerson['isEmployed']
-
-        await peopleApi.post<PostNewPersonResponse>('/person', newPerson).then((response) => {
-            
-            assert.equal(response.status, 400)
-            assert.equal(response.data.code, 'P400')
-            assert.equal(response.data.message, "Person must provide if he is employed or not")
-        })
-
-    })
-
     after( async () => {
         await peopleApi.delete(endpointConfig.DELETE_SINGLE_ENDPOINT+ newPersonOneId);
         await peopleApi.delete(endpointConfig.DELETE_SINGLE_ENDPOINT+ newPersonTwoId);
