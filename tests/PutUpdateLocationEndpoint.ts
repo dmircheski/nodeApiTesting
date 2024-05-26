@@ -25,8 +25,6 @@ describe('Testing the PUT Update person`s location endpoint', () => {
 
             newPersonId = response.data.personData.id;
             assert.equal(response.status, 201)
-
-            console.log(newLocationForPerson)
         })
     })
 
@@ -36,17 +34,17 @@ describe('Testing the PUT Update person`s location endpoint', () => {
             assert.equal(response.status, StatusCodes.OK)
             assert.equal(response.data.code, ResponseStatus.P200)
             assert.equal(response.data.message, ResponseMessages.PERSONS_LOCATION_SUCCESSFULLY_UPDATED)
+            assert.equal(response.data.person.location, newLocationForPerson.location);
             assert.notEqual(response.data.person.location, newPerson.location)
         })
     })
 
     it('Failed to update person with not existend ID', async () => {
-        await peopleApi.put<PutUpdateLocationResponse>(endpointConfig.PUT_SINGLE_ENDPOINT + newPersonId, newLocationForPerson).then((response) => {
+        await peopleApi.put<PutUpdateLocationResponse>(endpointConfig.PUT_SINGLE_ENDPOINT + '641774e39102bf0002bb0000', newLocationForPerson).then((response) => {
 
-            assert.equal(response.status, StatusCodes.OK)
-            assert.equal(response.data.code, ResponseStatus.P200)
-            assert.equal(response.data.message, ResponseMessages.PERSONS_LOCATION_SUCCESSFULLY_UPDATED)
-            assert.notEqual(response.data.person.location, newPerson.location)
+            assert.equal(response.status, StatusCodes.NOT_FOUND)
+            assert.equal(response.data.code, ResponseStatus.P404)
+            assert.equal(response.data.message, 'Person with id=641774e39102bf0002bb0000 not found')
         })
     })
 

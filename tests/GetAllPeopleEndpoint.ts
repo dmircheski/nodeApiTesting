@@ -22,7 +22,7 @@ import { ResponseStatus, ResponseMessages } from '../src/utils/TestDataEnums/Res
         it('Test if number of people field is counting correctly', async () => {
             await peopleApi.get<GetAllPeopleResponse>(endpointConfig.GET_ALL_ENDPOINT).then((response) => {
 
-                assert.equal(response.status, 200)
+                assert.equal(response.status, StatusCodes.OK)
                 assert.equal(response.data.peopleData?.length, response.data.numberOfPeople)
             })
         })

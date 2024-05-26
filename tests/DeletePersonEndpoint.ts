@@ -15,14 +15,17 @@ let newPersonId: string;
 
 describe('Testing the Delete Person endpoint', () => {
 
-    it('Successfully deleting a person by ID', async ()  => {
+    before( async () => {
         await peopleApi.post<PostNewPersonResponse>(endpointConfig.POST_SINGLE_ENDPOINT, newPerson).then((response) => {
 
             newPersonId = response.data.personData.id;
             assert.equal(response.status, 201)
         })
+    })
 
+    it('Successfully deleting a person by ID', async ()  => {
          await peopleApi.delete<DefaultPeopleResponse>(endpointConfig.DELETE_SINGLE_ENDPOINT + newPersonId).then((response) => {
+
             assert.equal(response.status, StatusCodes.OK)
             assert.equal(response.data.code, ResponseStatus.P200)
             assert.equal(response.data.message, 'Person with id=' + newPersonId + ' has been succesfully deleted')
@@ -31,6 +34,7 @@ describe('Testing the Delete Person endpoint', () => {
 
     it('Unable to delete person with non existing ID', async ()  => {
          await peopleApi.delete<DefaultPeopleResponse>(endpointConfig.DELETE_SINGLE_ENDPOINT + '641774e39102bf0002bb0000').then((response) => {
+            
             assert.equal(response.status, StatusCodes.NOT_FOUND)
             assert.equal(response.data.code, ResponseStatus.P404)
             assert.equal(response.data.message, 'Cannot delete Person because Id ' + '641774e39102bf0002bb0000'+'is not existant')
