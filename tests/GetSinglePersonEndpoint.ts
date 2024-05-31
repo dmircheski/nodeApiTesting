@@ -3,11 +3,11 @@ import PostNewPersonPayload from "../src/payloads/PostNewPersonPayload"
 import PostNewPersonRequest from "../src/model/requests/PostNewPersonRequest"
 import PostNewPersonResponse from "../src/model/responses/PostNewPersonResponse"
 import GetPersonResponse from "../src/model/responses/GetPersonResponse"
-import  endpointConfig from '../src/client/EndpointConfig'
+import  endpointConfig from '../src/client/PeopleApiEndpointConfig'
 import { assert } from "chai";
 import { StatusCodes } from 'http-status-codes'
 import { ResponseStatus, ResponseMessages } from '../src/utils/TestDataEnums/ResponseTestData'
-import EndpointConfig from "../src/client/EndpointConfig"
+import EndpointConfig from "../src/client/PeopleApiEndpointConfig"
 
 let postNewpersonPayload = new PostNewPersonPayload();
 let newPerson: PostNewPersonRequest = postNewpersonPayload.createNewPersonPayload();

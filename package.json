@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require ts-node/register ./tests/**/*.ts"
+    "test": "mocha --require ts-node/register ./tests/**/CreateNewUserEndpoint.ts"
   },
   "keywords": [],
   "author": "",

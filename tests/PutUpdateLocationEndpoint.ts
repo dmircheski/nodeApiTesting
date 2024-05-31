@@ -6,7 +6,7 @@ import PostNewPersonResponse from "../src/model/responses/PostNewPersonResponse"
 import PutUpdateLocationResponse from "../src/model/responses/PutUpdateLocationResponse"
 import PostNewPersonPayload from "../src/payloads/PostNewPersonPayload"
 import UpdatePersonLocationPayload from "../src/payloads/UpdatePersonLocationPayload"
-import  endpointConfig from '../src/client/EndpointConfig'
+import  endpointConfig from '../src/client/PeopleApiEndpointConfig'
 import { ResponseMessages, ResponseStatus } from "../src/utils/TestDataEnums/ResponseTestData"
 import { StatusCodes } from "http-status-codes"
 

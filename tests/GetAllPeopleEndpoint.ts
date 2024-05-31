@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import peopleApi from '../src/client/PeopleApi';
 import GetAllPeopleResponse from '../src/model/responses/GetAllPeopleResponse';
-import  endpointConfig from '../src/client/EndpointConfig'
+import  endpointConfig from '../src/client/PeopleApiEndpointConfig'
 import { StatusCodes } from 'http-status-codes'
 import { ResponseStatus, ResponseMessages } from '../src/utils/TestDataEnums/ResponseTestData'
 

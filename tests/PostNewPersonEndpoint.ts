@@ -3,7 +3,7 @@ import peopleApi from "../src/client/PeopleApi"
 import PostNewPersonRequest from "../src/model/requests/PostNewPersonRequest"
 import PostNewPersonResponse from "../src/model/responses/PostNewPersonResponse"
 import PostNewPersonPayload from "../src/payloads/PostNewPersonPayload"
-import  endpointConfig from '../src/client/EndpointConfig'
+import  endpointConfig from '../src/client/PeopleApiEndpointConfig'
 
 let postNewPersonPayload = new PostNewPersonPayload()
 let newPerson: PostNewPersonRequest = postNewPersonPayload.createNewPersonPayload();

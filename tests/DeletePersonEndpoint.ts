@@ -1,6 +1,6 @@
 import peopleApi from "../src/client/PeopleApi"
 import PostNewPersonResponse from "../src/model/responses/PostNewPersonResponse"
-import  endpointConfig from '../src/client/EndpointConfig'
+import  endpointConfig from '../src/client/PeopleApiEndpointConfig'
 import PostNewPersonPayload from "../src/payloads/PostNewPersonPayload"
 import DefaultPeopleResponse from "../src/model/responses/DefaultPeopleResponse";
 let postNewpersonPayload = new PostNewPersonPayload();
